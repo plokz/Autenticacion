@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  p Bienvenido a #{title}
+  if(user)
+    ul
+      li
+        img(src="#{user.photo}")
+      li 
+        Bienvenido #{user.name}
+
+      li Cuenta creada #{user.createdAt}
+
+      li 
+      button(class="btn", data-action="logout")
+        a(href='logout') Salir
+  else
+    ul
+      li
+      button(class="btn", data-action="auth/twitter")
+        a(href='auth/twitter') Login con Twitter
+      li
+      button(class="btn", data-action="auth/facebook")
+        a(href='auth/facebook') Login con Facebook
